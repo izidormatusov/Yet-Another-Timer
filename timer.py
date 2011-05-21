@@ -68,11 +68,11 @@ class StatusIcon(gtk.StatusIcon):
 class TimerApp(gtk.Window):
     """ Simple timer which really shows timer window """
 
-    def __init__(self, wait_time, message):
+    def __init__(self, wait_time=None, message=None):
         super(TimerApp, self).__init__(gtk.WINDOW_TOPLEVEL)
 
-        self.wait_time = wait_time
-        self.left_time = wait_time
+        self.wait_time = parse_time(wait_time)
+        self.left_time = self.wait_time
 
         self.set_border_width(10)
         self.set_title('Time is up')
@@ -90,7 +90,7 @@ class TimerApp(gtk.Window):
 
         self.add(box)
 
-        self.status_icon = StatusIcon(wait_time)
+        self.status_icon = StatusIcon(self.wait_time)
 
     def destroy(self, window, data=None):
         """ Finish application """
@@ -136,7 +136,7 @@ def parse_time(unparsed_time):
 
 if __name__ == "__main__":
     if len(sys.argv) >= 2:
-        wait_time = parse_time(sys.argv[1])
+        wait_time = sys.argv[1]
         message = " ".join(sys.argv[2:])
 
         w = TimerApp(wait_time, message)
