@@ -23,7 +23,7 @@ class StatusIcon(gtk.StatusIcon):
         super(StatusIcon, self).__init__()
 
         self.max_time = max_time
-        self.update_icon(0)
+        self.update(0)
 
     def update(self, time):
         """ Update icon and set tooltip """
@@ -100,7 +100,7 @@ class TimerApp(gtk.Window):
         """ Update status icon or show the window! """
 
         self.left_time -= 1
-        self.status_icon.update_icon(self.wait_time - self.left_time)
+        self.status_icon.update(self.wait_time - self.left_time)
 
         if self.left_time <= 0:
             self.show_all()
