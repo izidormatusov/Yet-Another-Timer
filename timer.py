@@ -120,8 +120,8 @@ class AppIndicator:
         menu = gtk.Menu()
         #faq_item = gtk.MenuItem("Debian FAQ")
         #faq_item.connect("activate", faq_clicked)
-        faq_item.show()
-        menu.append(faq_item)
+        #faq_item.show()
+        #menu.append(faq_item)
         self.ind.set_menu(menu)
         self.update(0)
 
