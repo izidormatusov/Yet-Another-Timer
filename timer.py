@@ -14,19 +14,23 @@ import gtk
 import glib
 import cairo
 
+import appindicator
+from tempfile import NamedTemporaryFile
+import os
+
 from math import pi
 
-class StatusIcon(gtk.StatusIcon):
-    """ Shows everything needed """
+class TimerIcon:
+    """ Draws a simple timer icon """
 
     def __init__(self, max_time):
-        super(StatusIcon, self).__init__()
-
+        """ Init file for storing icon """
         self.max_time = max_time
-        self.update(0)
+        self.previous_file = None
 
-    def update(self, time):
-        """ Update icon and set tooltip """
+    def create_image(self, time):
+        """ Create PixBuf for image """
+
         width, height = 32, 32
         radius = min(width, height) / 2.0
 
@@ -59,11 +63,75 @@ class StatusIcon(gtk.StatusIcon):
         pixbuf = pixbuf.get_from_drawable(pixmap, pixmap.get_colormap(), 0, 0, 0, 0, width, height)
         pixbuf = pixbuf.add_alpha(True, 0, 0, 0)
 
+        return pixbuf
 
+    def clean_previous_image(self):
+        if self.previous_file is not None:
+            os.remove(self.previous_file)
+
+    def save_image(self, time):
+        """ Save image """
+
+        self.clean_previous_image()
+
+        tmp = NamedTemporaryFile(delete=False)
+        filename = tmp.name
+        tmp.close()
+
+        pixbuf = self.create_image(time)
+        pixbuf.save(filename, "png")
+
+        self.previous_file = filename
+
+        return self.previous_file
+
+    def __del__(self):
+        """ Remove the last file """
+        self.clean_previous_image()
+
+class StatusIcon(gtk.StatusIcon):
+    """ Shows everything needed """
+
+    def __init__(self, max_time):
+        super(StatusIcon, self).__init__()
+
+        self.max_time = max_time
+        self.timer_icon = TimerIcon(self.max_time)
+        self.update(0)
+
+    def update(self, time):
+        """ Update icon and set tooltip """
+
+        pixbuf = self.timer_icon.create_image(time)
         self.set_from_pixbuf(pixbuf)
-
         self.set_tooltip("Left %s seconds" % (self.max_time - time))
 
+class AppIndicator:
+    """ Shows indicator in Unity """
+
+    def __init__(self, max_time):
+        self.max_time = max_time
+        self.timer_icon = TimerIcon(self.max_time)
+
+        self.ind = appindicator.Indicator("timer-app", "", appindicator.CATEGORY_APPLICATION_STATUS)
+        self.ind.set_status(appindicator.STATUS_ACTIVE)
+        self.ind.set_attention_icon("indicator-messages-new")
+        # FIXME put there something useful!!!
+        menu = gtk.Menu()
+        #faq_item = gtk.MenuItem("Debian FAQ")
+        #faq_item.connect("activate", faq_clicked)
+        faq_item.show()
+        menu.append(faq_item)
+        self.ind.set_menu(menu)
+        self.update(0)
+
+    def update(self, time):
+        if time >= self.max_time:
+            self.ind.set_status(appindicator.STATUS_ATTENTION)
+            self.timer_icon.clean_previous_image()
+        else:
+            filename = self.timer_icon.save_image(time)
+            self.ind.set_icon(filename)
 
 class TimerApp(gtk.Window):
     """ Simple timer which really shows timer window """
@@ -91,6 +159,7 @@ class TimerApp(gtk.Window):
         self.add(box)
 
         self.status_icon = StatusIcon(self.wait_time)
+        self.indicator = AppIndicator(self.wait_time)
 
     def destroy(self, window, data=None):
         """ Finish application """
@@ -101,6 +170,7 @@ class TimerApp(gtk.Window):
 
         self.left_time -= 1
         self.status_icon.update(self.wait_time - self.left_time)
+        self.indicator.update(self.wait_time - self.left_time)
 
         if self.left_time <= 0:
             self.show_all()
