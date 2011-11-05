@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-05 17:49+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: new_timer.py:62
+msgid "The time is up!"
+msgstr ""
+
+#: new_timer.py:72 new_timer.py:122
+msgid "Yet Another Timer"
+msgstr ""
+
+#: new_timer.py:127
+msgid "Notify me:"
+msgstr ""
+
+#: new_timer.py:134
+msgid "in"
+msgstr ""
+
+#: new_timer.py:143
+msgid "hours"
+msgstr ""
+
+#: new_timer.py:149
+msgid "minutes"
+msgstr ""
+
+#: new_timer.py:154
+msgid "at"
+msgstr ""
+
+#: new_timer.py:178
+msgid "Message:"
+msgstr ""
+
+#: new_timer.py:312
+msgid "Wait"
+msgstr ""
+
+#: new_timer.py:315
+msgid "Done"
+msgstr ""
+
+#: new_timer.py:320 new_timer.py:472
+msgid "Restart"
+msgstr ""
+
+#: new_timer.py:473
+msgid "Quit"
+msgstr ""
+
+#: new_timer.py:499
+#, python-format
+msgid "Notify at %02d:%02d"
+msgstr ""
+
+#: new_timer.py:505
+#, python-format
+msgid "Rest time: %d:%02d"
+msgstr ""
+
+#: new_timer.py:507
+#, python-format
+msgid "Rest time: %d min"
+msgstr ""

@@ -1,0 +1,81 @@
+# Yet Another Timer - Slovak Translation
+# Copyright (C) 2011
+# This file is distributed under the same license as the Yet Another Timer package.
+# Izidor Matusov <izidor.matusov@gmail.com>, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-05 17:33+0100\n"
+"PO-Revision-Date: 2011-11-05 17:33+0100\n"
+"Last-Translator: Izidor Matusov <izidor.matusov@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: new_timer.py:60
+msgid "The time is up!"
+msgstr "Vypršal ti čas!"
+
+#: new_timer.py:70 new_timer.py:120
+msgid "Yet Another Timer"
+msgstr "Yet Another Timer"
+
+#: new_timer.py:125
+msgid "Notify me:"
+msgstr "Upozorni ma:"
+
+#: new_timer.py:132
+msgid "in"
+msgstr "za"
+
+#: new_timer.py:141
+msgid "hours"
+msgstr "hodín"
+
+#: new_timer.py:147
+msgid "minutes"
+msgstr "minút"
+
+#: new_timer.py:152
+msgid "at"
+msgstr "o"
+
+#: new_timer.py:176
+msgid "Message:"
+msgstr "Správa:"
+
+#: new_timer.py:310
+msgid "Wait"
+msgstr "Čakaj"
+
+#: new_timer.py:313
+msgid "Done"
+msgstr "Koniec"
+
+#: new_timer.py:318 new_timer.py:470
+msgid "Restart"
+msgstr "Reštartovať"
+
+#: new_timer.py:471
+msgid "Quit"
+msgstr "Ukončiť"
+
+#: new_timer.py:497
+#, python-format
+msgid "Notify at %02d:%02d"
+msgstr "Upozorni o %02d:%02d"
+
+#: new_timer.py:503
+#, python-format
+msgid "Rest time: %d:%02d"
+msgstr "Zostáva: %d:%02d"
+
+#: new_timer.py:505
+#, python-format
+msgid "Rest time: %d min"
+msgstr "Zostáva: %d minút"

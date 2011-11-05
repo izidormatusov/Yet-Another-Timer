@@ -1,0 +1,81 @@
+# Yet Another Timer - German Translation
+# Copyright (C) 2011
+# This file is distributed under the same license as the PACKAGE package.
+# Izidor Matusov <izidor.matusov@gmail.com>, 2011
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-05 17:49+0100\n"
+"PO-Revision-Date: 2011-11-05 17:49+0100\n"
+"Last-Translator: Izidor Matusov <izidor.matusov@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: new_timer.py:62
+msgid "The time is up!"
+msgstr "Die Zeit ist abgelaufen!"
+
+#: new_timer.py:72 new_timer.py:122
+msgid "Yet Another Timer"
+msgstr "Yet Another Timer"
+
+#: new_timer.py:127
+msgid "Notify me:"
+msgstr "Benachrichtig mich:"
+
+#: new_timer.py:134
+msgid "in"
+msgstr "in"
+
+#: new_timer.py:143
+msgid "hours"
+msgstr "Stunden"
+
+#: new_timer.py:149
+msgid "minutes"
+msgstr "Minuten"
+
+#: new_timer.py:154
+msgid "at"
+msgstr "am"
+
+#: new_timer.py:178
+msgid "Message:"
+msgstr "Bescheid:"
+
+#: new_timer.py:312
+msgid "Wait"
+msgstr "Warten Sie"
+
+#: new_timer.py:315
+msgid "Done"
+msgstr "Fertig"
+
+#: new_timer.py:320 new_timer.py:472
+msgid "Restart"
+msgstr "Neustart"
+
+#: new_timer.py:473
+msgid "Quit"
+msgstr "Beenden"
+
+#: new_timer.py:499
+#, python-format
+msgid "Notify at %02d:%02d"
+msgstr "Am %02d:%02d"
+
+#: new_timer.py:505
+#, python-format
+msgid "Rest time: %d:%02d"
+msgstr "Restzeit: %d:%02d"
+
+#: new_timer.py:507
+#, python-format
+msgid "Rest time: %d min"
+msgstr "Restzeit: %d Minuten"

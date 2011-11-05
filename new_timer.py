@@ -52,7 +52,12 @@ except ImportError:
 from xdg.BaseDirectory import xdg_config_home
 from configobj import ConfigObj
 
-DEFAULT_MESSAGE = 'The time is up!'
+import gettext
+
+GETTEXT_DOMAIN = 'yet-another-timer'
+gettext.install(GETTEXT_DOMAIN)
+
+DEFAULT_MESSAGE = _('The time is up!')
 
 class SettingsWindow(gtk.Window):
     """ Allows the user to enter parameters of notification. """
@@ -62,7 +67,7 @@ class SettingsWindow(gtk.Window):
         super(SettingsWindow, self).__init__()
 
         self.set_border_width(10)
-        self.set_title('Yet Another Timer')
+        self.set_title(_('Yet Another Timer'))
         self.set_resizable(False)
         self.set_position(gtk.WIN_POS_CENTER)
         self.set_icon_name('clock')
@@ -112,19 +117,19 @@ class SettingsWindow(gtk.Window):
         label = gtk.Label()
         label.set_use_markup(True)
         # size must be (size in pt)*1000
-        label.set_markup('<b><span size="16000">Yet Another Timer</span></b>')
+        label.set_markup('<b><span size="16000">%s</span></b>' % _('Yet Another Timer'))
         alignment.add(label)
         main_vbox.pack_start(alignment, False, False, 3)
 
         # Framebox for times
-        frame = gtk.Frame('Notify me:')
+        frame = gtk.Frame(_('Notify me:'))
         vbox = gtk.VBox(False, 7)
         vbox.set_border_width(10)
         frame.add(vbox)
 
         # "in __ hours __ minutes" group
         hbox = gtk.HBox(False, 5)
-        self.in_box = gtk.RadioButton(label='in')
+        self.in_box = gtk.RadioButton(label=_('in'))
         self.in_box.connect('toggled', self.on_in_at_changed, 'in')
         hbox.pack_start(self.in_box, False, False, 5)
         adjustment = gtk.Adjustment(0, 0, 999, 1, 10)
@@ -133,18 +138,18 @@ class SettingsWindow(gtk.Window):
         self.in_hours.set_alignment(1.0)
         self.in_hours.set_width_chars(3)
         hbox.pack_start(self.in_hours, False)
-        hbox.pack_start(gtk.Label('hours'), False)
+        hbox.pack_start(gtk.Label(_('hours')), False)
         adjustment = gtk.Adjustment(0, 0, 999, 1, 10)
         self.in_minutes = gtk.SpinButton(adjustment)
         self.in_minutes.set_alignment(1.0)
         self.in_minutes.set_width_chars(3)
         hbox.pack_start(self.in_minutes, False)
-        hbox.pack_start(gtk.Label('minutes'), False)
+        hbox.pack_start(gtk.Label(_('minutes')), False)
         vbox.pack_start(hbox, False)
 
         # "at __:__" group
         hbox = gtk.HBox(False, 2)
-        self.at_box = gtk.RadioButton(self.in_box, 'at')
+        self.at_box = gtk.RadioButton(self.in_box, _('at'))
         self.at_box.connect('toggled', self.on_in_at_changed, 'at')
         hbox.pack_start(self.at_box, False, False, 5)
         adjustment = gtk.Adjustment(0, 0, 23, 1, 10)
@@ -168,7 +173,7 @@ class SettingsWindow(gtk.Window):
 
         # Message entry
         hbox = gtk.HBox(False, 5)
-        hbox.pack_start(gtk.Label('Message:'), False)
+        hbox.pack_start(gtk.Label(_('Message:')), False)
         self.message = gtk.Entry()
         hbox.pack_start(self.message)
         main_vbox.pack_start(hbox, False)
@@ -302,15 +307,15 @@ class NotificationWindow(gtk.Window):
         hbox = gtk.HBox(True)
 
         self.wait_button = gtk.Button()
-        self.wait_button.original_label = "Wait"
+        self.wait_button.original_label = _("Wait")
         hbox.pack_start(self.wait_button)
 
-        button = gtk.Button(label="Done")
+        button = gtk.Button(label=_("Done"))
         button.connect('clicked', self.on_done)
         hbox.pack_start(button)
         self.buttons.append(button)
 
-        button = gtk.Button(label="Restart")
+        button = gtk.Button(label=_("Restart"))
         button.connect('clicked', self.on_restart)
         hbox.pack_start(button)
         self.buttons.append(button)
@@ -459,11 +464,11 @@ class Menu(gtk.Menu):
         super(Menu, self).__init__()
         self.notify_at = notify_at
 
-        self.time_item = self.add_item('Rest time')
+        self.time_item = self.add_item('')
         self.add_separator()
         self.restart = restart
-        self.add_item('Restart', self.on_restart)
-        self.add_item('Quit', self.on_quit)
+        self.add_item(_('Restart'), self.on_restart)
+        self.add_item(_('Quit'), self.on_quit)
 
     def add_separator(self):
         item = gtk.SeparatorMenuItem()
@@ -489,15 +494,15 @@ class Menu(gtk.Menu):
         if self.notify_at:
             timestamp = current_time() + (max_time - time)*60
             date = datetime.fromtimestamp(timestamp)
-            label = 'Notify at %02d:%02d' % (date.hour, date.minute)
+            label = _('Notify at %02d:%02d') % (date.hour, date.minute)
         else:
             diff_min = ceil((max_time - time) / 60.0)
             if diff_min > 60:
                 hours = diff_min / 60
                 minutes = diff_min % 60
-                label = "Rest time: %d:%02d" % (hours, minutes)
+                label = _("Rest time: %d:%02d") % (hours, minutes)
             else:
-                label = "Rest time: %d min" % (diff_min)
+                label = _("Rest time: %d min") % (diff_min)
 
         self.time_item.set_label(label)
 
