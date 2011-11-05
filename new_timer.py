@@ -492,7 +492,7 @@ class Menu(gtk.Menu):
 
     def update_time(self, time, max_time):
         if self.notify_at:
-            timestamp = current_time() + (max_time - time)*60
+            timestamp = current_time() + max_time - time
             date = datetime.fromtimestamp(timestamp)
             label = _('Notify at %02d:%02d') % (date.hour, date.minute)
         else:
