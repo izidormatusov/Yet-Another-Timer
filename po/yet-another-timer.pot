@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-05 17:49+0100\n"
+"POT-Creation-Date: 2011-11-05 18:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,65 +17,67 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: new_timer.py:62
+#: ../yet-another-timer.py:60
 msgid "The time is up!"
 msgstr ""
 
-#: new_timer.py:72 new_timer.py:122
+#. size must be (size in pt)*1000
+#: ../yet-another-timer.py:70 ../yet-another-timer.py:120
 msgid "Yet Another Timer"
 msgstr ""
 
-#: new_timer.py:127
+#. Framebox for times
+#: ../yet-another-timer.py:125
 msgid "Notify me:"
 msgstr ""
 
-#: new_timer.py:134
+#: ../yet-another-timer.py:132
 msgid "in"
 msgstr ""
 
-#: new_timer.py:143
+#: ../yet-another-timer.py:141
 msgid "hours"
 msgstr ""
 
-#: new_timer.py:149
+#: ../yet-another-timer.py:147
 msgid "minutes"
 msgstr ""
 
-#: new_timer.py:154
+#: ../yet-another-timer.py:152
 msgid "at"
 msgstr ""
 
-#: new_timer.py:178
+#: ../yet-another-timer.py:176
 msgid "Message:"
 msgstr ""
 
-#: new_timer.py:312
+#: ../yet-another-timer.py:310
 msgid "Wait"
 msgstr ""
 
-#: new_timer.py:315
+#: ../yet-another-timer.py:313
 msgid "Done"
 msgstr ""
 
-#: new_timer.py:320 new_timer.py:472
+#: ../yet-another-timer.py:318 ../yet-another-timer.py:470
 msgid "Restart"
 msgstr ""
 
-#: new_timer.py:473
+#: ../yet-another-timer.py:471
 msgid "Quit"
 msgstr ""
 
-#: new_timer.py:499
+#: ../yet-another-timer.py:497
 #, python-format
 msgid "Notify at %02d:%02d"
 msgstr ""
 
-#: new_timer.py:505
+#: ../yet-another-timer.py:503
 #, python-format
 msgid "Rest time: %d:%02d"
 msgstr ""
 
-#: new_timer.py:507
+#: ../yet-another-timer.py:505
 #, python-format
 msgid "Rest time: %d min"
 msgstr ""
