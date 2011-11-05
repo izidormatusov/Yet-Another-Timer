@@ -42,11 +42,7 @@ import os
 from math import pi
 from math import ceil
 
-try:
-    import appindicator
-    use_indicator = True
-except ImportError:
-    use_indicator = False
+import appindicator
 
 # For storing configuration
 from xdg.BaseDirectory import xdg_config_home

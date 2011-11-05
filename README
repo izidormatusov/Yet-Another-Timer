@@ -1,6 +1,4 @@
 Yet Another Timer
 =================
 
-This is quick'n'dirty timer for GNOME 3 and Unity.
-
-Both of GNOME 3 and Unity does not support applets for panels. This application simply imitates Timer Applet ( https://launchpad.net/timer-applet )
+Timer in a form of AppIndicator for Unity. This is remake of Timer Applet ( https://launchpad.net/timer-applet ).
