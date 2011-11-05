@@ -638,7 +638,9 @@ def main(mode=None, hours=None, minutes=None, message=None):
         skip_settings = False
         
         timer = Timer(mode, duration)
-        timer.run()
+        if not timer.run():
+            done = False
+            continue
 
         notification = NotificationWindow(message)
         done = not notification.run()
