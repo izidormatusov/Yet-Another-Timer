@@ -526,7 +526,7 @@ class AppIndicator:
 
 class Timer:
     def __init__(self, mode, duration):
-        self.duration = duration
+        self.duration = duration * 60
         self.time = 0
         self.result = None
         self.ind = AppIndicator(mode == 'at', self.cancel)
@@ -546,7 +546,6 @@ class Timer:
             glib.source_remove(self.timer_source)
 
     def on_tick(self):
-        print "tick"
         if self.time >= self.duration:
             self.result = True
             return False
