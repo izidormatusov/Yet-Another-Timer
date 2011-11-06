@@ -275,6 +275,7 @@ class NotificationWindow(gtk.Window):
         self.set_position(gtk.WIN_POS_CENTER_ALWAYS)
         self.set_resizable(False)
         self.set_icon_name('clock')
+        self.stick()
 
         # Disable close function for a while
         self.connect('delete-event', self.on_close)
