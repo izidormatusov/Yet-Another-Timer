@@ -17,7 +17,7 @@
 #    Created by Izidor Matušov <izidor.matusov@gmail.com>
 #            in year 2011
 
-import sys 
+import sys
 import re
 
 try:
@@ -633,7 +633,7 @@ def main(mode=None, hours=None, minutes=None, message=None):
         conf['message'] = message
         conf.write()
         skip_settings = False
-        
+
         timer = Timer(mode, duration)
         if not timer.run():
             done = False
